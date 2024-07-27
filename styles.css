@@ -1,0 +1,238 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.nav__bar, .section__container, .footer__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navigation */
+.nav__bar {
+    background-color: #333;
+    color: #fff;
+    padding: 15px 0;
+    position: relative;
+}
+
+.nav__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav__logo {
+    display: flex;
+    align-items: center;
+}
+
+.nav__logo div {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav__logo span {
+    font-size: 14px;
+}
+
+.nav__menu__btn {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.nav__links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.nav__links li {
+    margin-right: 20px;
+}
+
+.nav__links a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Booking Section */
+.booking {
+    padding: 40px 0;
+    background-color: #f4f4f4;
+}
+
+.input__group {
+    margin-bottom: 20px;
+}
+
+.input__group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input__group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.btn {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+/* Room Section */
+.room__container {
+    padding: 40px 0;
+}
+
+.section__subheader, .section__header {
+    text-align: center;
+}
+
+.room__grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.room__card {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+    width: 30%;
+}
+
+.room__card img {
+    width: 100%;
+    height: auto;
+}
+
+.room_card_details {
+    padding: 15px;
+}
+
+.rating {
+    color: #f39c12;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.rating .fa-star, .rating .fa-star-half-alt, .rating .fa-star {
+    margin-right: 2px;
+}
+
+h3 {
+    margin: 10px 0;
+}
+
+h3 span {
+    font-size: 0.8em;
+}
+
+/* Header Section */
+.header {
+    background: url('assets/header-bg.jpg') no-repeat center center/cover;
+    color: #fff;
+    text-align: center;
+    padding: 80px 0;
+}
+
+.header__container h1 {
+    margin: 0;
+}
+
+/* About Section */
+.about {
+    padding: 40px 0;
+}
+
+.about__grid {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.about__image img {
+    width: 100%;
+    height: auto;
+}
+
+.about__card {
+    text-align: center;
+    padding: 15px;
+}
+
+.about__card span {
+    font-size: 24px;
+}
+
+/* Footer Section */
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+}
+
+.footer__col {
+    margin-bottom: 20px;
+}
+
+.footer__logo {
+    display: flex;
+    align-items: center;
+}
+
+.footer__logo div {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.footer__socials {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.footer__socials li {
+    margin-right: 10px;
+}
+
+.footer__socials a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.footer__links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer__links li {
+    margin-bottom: 10px;
+}
+
+.footer__links a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Footer Bottom Bar */
+.footer__bar {
+    background-color: #222;
+    text-align: center;
+    padding: 10px 0;
+}
