@@ -607,6 +607,12 @@ nav {
   text-align: center;
 }
 /* Cards Hotel Information */
+.container_hotel {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  margin: 30px;
+}
 .hotel-cards {
   padding: 20px;
   background-color: #f9f9f9;
@@ -638,7 +644,7 @@ nav {
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 8px;
-  width: 2100px; /* Tamaño fijo para pantallas grandes */
+  width: 900px; /* Tamaño fijo para pantallas grandes */
   max-width: 100%; /* Asegura que no se desborde en pantallas más pequeñas */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -647,7 +653,7 @@ nav {
 }
 
 .hotel-card img {
-  width: 500px; /* Ancho fijo para la imagen */
+  width: 400px; /* Ancho fijo para la imagen */
   height: auto; /* Ajusta la altura automáticamente para mantener la proporción */
   object-fit: cover;
   margin-right: 15px; /* Espacio entre la imagen y el contenido */
@@ -862,5 +868,97 @@ nav {
 
   .hotel-details h4 {
     font-size: 1.2rem; /* Reducir tamaño del texto del nombre del hotel */
+  }
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  margin-bottom: 20px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  border-radius: 50%;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.column {
+  width: 100%;
+  max-width: 300px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .container {
+      padding: 10px;
+  }
+  
+  .switch {
+      width: 50px;
+      height: 28px;
+  }
+  
+  .slider:before {
+      height: 22px;
+      width: 22px;
+  }
+  
+  .column {
+      max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .switch {
+      width: 40px;
+      height: 24px;
+  }
+  
+  .slider:before {
+      height: 18px;
+      width: 18px;
+  }
+  
+  .column {
+      padding: 15px;
+      margin: 5px;
   }
 }

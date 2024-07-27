@@ -46,3 +46,18 @@ ScrollReveal().reveal(".news__card", {
   ...scrollRevealOption,
   interval: 500,
 });
+
+// Funcion del toggle
+function toggleContent() {
+  var column1 = document.getElementById('column1');
+  var column2 = document.getElementById('column2');
+  var switchToggle = document.getElementById('toggleSwitch');
+
+  if (switchToggle.checked) {
+      column1.style.display = 'none';
+      column2.style.display = 'block';
+  } else {
+      column1.style.display = 'block';
+      column2.style.display = 'none';
+  }
+}
