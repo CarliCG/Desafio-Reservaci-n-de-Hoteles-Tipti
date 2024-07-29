@@ -201,10 +201,7 @@ nav {
   gap: 1rem;
 }
 
-.input__group label {
-  font-weight: 600;
-  color: var(--white);
-}
+
 
 .input__group input {
   width: 100%;
@@ -307,8 +304,8 @@ nav {
 }
 
 .room__grid {
-  max-width: 1500px;
-  margin-inline: auto;
+  max-width: 1000px;
+  margin-inline: 150px;
   margin-top: 4rem;
   display: grid;
   gap: 0 1rem;
@@ -317,6 +314,9 @@ nav {
 .room__card img {
   box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
+  height: 200px;
+  width: 350px;
+  
 }
 
 .room__card__details {
@@ -329,7 +329,7 @@ nav {
   background-color: var(--white);
   transform: translateY(-50%);
   border-radius: 5px;
-  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 5px 5px 20px rgba(18, 1, 70, 0.2);
 }
 
 .room__card__details h4 {
@@ -609,81 +609,9 @@ nav {
 /* Cards Hotel Information */
 .container_hotel {
   display: flex;
-  justify-content: space-between;
-  padding: 20px;
-  margin: 30px;
-}
-.hotel-cards {
-  padding: 20px;
-  background-color: #f9f9f9;
-  
-}
-
-.section-subheader {
-  text-align: center;
-  font-size: 1.2rem;
-  color: #333;
-}
-
-.section-header {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 20px;
-}
-
-.hotel-grid {
-  display: flex;
-  flex-direction: column; /* Cambia la dirección de las tarjetas a columna */
-  align-items: center; /* Alinea las tarjetas al centro */
-  gap: 20px; /* Espacio entre las tarjetas */
-}
-
-.hotel-card {
-  display: flex; /* Utiliza flexbox para la disposición horizontal */
-  align-items: center; /* Alinea verticalmente los elementos */
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  width: 900px; /* Tamaño fijo para pantallas grandes */
-  max-width: 100%; /* Asegura que no se desborde en pantallas más pequeñas */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  transition: transform 0.3s ease; /* Transición para efectos de hover */
-  border-radius: 50px;
-}
-
-.hotel-card img {
-  width: 400px; /* Ancho fijo para la imagen */
-  height: auto; /* Ajusta la altura automáticamente para mantener la proporción */
-  object-fit: cover;
-  margin-right: 15px; /* Espacio entre la imagen y el contenido */
-  border-radius: 30px;
-}
-
-.hotel-details {
-  padding: 15px;
-  flex: 1; /* Permite que el contenido ocupe el espacio restante */
-}
-
-.hotel-details h4 {
-  font-size: 1.5rem;
-  margin: 10px 0;
-}
-
-.rating {
-  font-size: 1.2rem;
-  color: #f39c12;
-  margin: 10px 0;
-}
-
-.price {
-  font-size: 1rem;
-  color: #555;
-}
-
-/* Efecto hover */
-.hotel-card:hover {
-  transform: scale(1.05);
+  justify-content:space-evenly;
+  padding: 10px;
+  margin: 10px;
 }
 
 /* Responsividad */
@@ -842,8 +770,8 @@ nav {
 
 @media (max-width: 768px) {
   .hotel-card {
-    flex-direction: column; /* Cambia a columna en pantallas pequeñas */
-    align-items: center; /* Centra los elementos en pantallas pequeñas */
+    flex-direction: column; 
+    align-items: center; 
   }
 
   .hotel-card img {
@@ -870,12 +798,19 @@ nav {
     font-size: 1.2rem; /* Reducir tamaño del texto del nombre del hotel */
   }
 }
+/* Estilos del contenedor que envuelve al switch */
+.wrapper {
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente (opcional) */
+
+}
 .switch {
   position: relative;
   display: inline-block;
   width: 60px;
   height: 34px;
-  margin-bottom: 20px;
+  
 }
 
 .switch input {
@@ -909,7 +844,7 @@ nav {
 }
 
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: #103f65;
 }
 
 input:checked + .slider:before {

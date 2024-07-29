@@ -1,0 +1,164 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@400;500;600;700&display=swap");
+
+:root {
+  --primary-color: #0f1a2c;
+  --secondary-color: #f6ac0f;
+  --text-dark: #0f172a;
+  --text-light: #64748b;
+  --extra-light: #f8fafc;
+  --white: #ffffff;
+  --max-width: 1200px;
+  --header-font: "Playfair Display", serif;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Estilo para el label */
+.date-label {
+    font-family: 'Arial', sans-serif; /* Cambia la fuente según tus preferencias */
+    font-size: 15px; 
+    color: #333; 
+    margin-bottom: 10px;
+    display: block; 
+}
+
+/* Estilo para el input tipo date */
+.date-input {
+    font-family: 'Arial', sans-serif; 
+    font-size: 15px; 
+    padding: 10px; 
+    border: 1px solid #ccc; /* Borde del input */
+    border-radius: 9px; 
+    width: 50%; 
+    box-sizing: border-box; /* Incluye el padding y el borde en el ancho total */
+    margin-bottom: 10px; /* Espacio debajo del input */
+}
+/* titulo de membresia */
+.label-text {
+  font-size: 19px; 
+  color: #333; 
+  text-align: center; 
+}
+.input__group label {
+    font-weight: 600;
+    color: var(--white);
+  }
+/* Estilo para la sección opaca y deshabilitada */
+.disabled-section {
+  opacity: 0.2;
+  pointer-events: none; /* Deshabilita los eventos del mouse */
+}
+
+/* Estilo para la sección activa */
+.active-section {
+  opacity: 1;
+  pointer-events: auto;
+}
+  /* Opacidad de las secciones */
+  .disabled {
+    opacity: 0.2;
+    pointer-events: none; /* Desactiva clics */
+}
+
+.active {
+    opacity: 1;
+    pointer-events: auto; /* Activa clics */
+}
+
+  .hotel-cards,
+  .hotel-cards2 {
+    padding: 10px;
+    background-color: #f9f9f9;
+    transition: opacity 0.3s ease, pointer-events 0.3s ease;
+    
+  }
+  
+  .section-subheader {
+    text-align: center;
+    font-size: 15px;
+    color: #333;       
+  }
+  
+  .section-header {
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 20px;
+    
+  }
+  
+  .hotel-grid {
+    display: flex;
+    flex-direction: column; /* Cambia la dirección de las tarjetas a columna */
+    align-items: center;
+    gap: 30px;
+  }
+  
+  .hotel-card {
+    display: flex; /* Utiliza flexbox para la disposición horizontal */
+    align-items: center; 
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;    
+    height: 200px;
+    width: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease; /* Transición para efectos de hover */
+    border-radius: 50px;
+  }
+  
+  .hotel-card img {
+    width: 200px; 
+    height: 200px; 
+    object-fit: cover;
+    margin-right: 15px; 
+    border-radius: 30px;
+  }
+  
+  .hotel-details {
+    padding: 15px;
+    flex: 1; /* Permite que el contenido ocupe el espacio restante */
+  }
+  
+  .hotel-details h4 {
+    font-size:15px;
+    margin: 10px 0;
+  }
+  
+  .rating {
+    font-size: 15px;
+    color: #f39c12;
+    margin: 10px 0;
+  }
+  
+ 
+  
+  /* Efecto hover */
+  .hotel-card:hover {
+    transform: scale(1.05);
+  }
+  .descripcion {
+    font-size: 10px; /* Ajusta el tamaño del texto según sea necesario */
+    color: #333; /* Puedes ajustar el color si es necesario */
+    line-height: 1.5; /* Opcional: ajusta la altura de la línea para mejorar la legibilidad */
+  }
+  
+  /* Opcional: Ajustes para pantallas más pequeñas */
+  @media (max-width: 768px) {
+    .descripcion {
+      font-size: 12px; /* Tamaño de texto más pequeño en pantallas medianas */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .descripcion {
+      font-size: 10px; /* Tamaño de texto más pequeño en pantallas pequeñas */
+    }
+  }
+
+
+

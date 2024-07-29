@@ -7,7 +7,8 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="stylesheet" href="styles/style-room-cards.css" />
     <title>Booking Hotel | Miami</title>
 </head>
 <!-- Barra de Navegacion Principal -->
@@ -52,12 +53,13 @@
             </form>
         </div>
     </section>
+    <!-- Contenedor de Hoteles -->
     <section class="room__container" id="room">
         <p class="section-subheader">HOTELS</p>
         <h2 class="section-header">Discover Our Hotels</h2>
         <div class="room__grid">
             <div class="room__card">
-                <img src="assets/room3.jpg" alt="room" />
+                <img src="assets/hotel1.jpg" alt="room" />
                 <div class="room__card__details">
                     <div>
                         <h4>Lakewood Hotel</h4>
@@ -74,7 +76,7 @@
                 </div>
             </div>
             <div class="room__card">
-                <img src="assets/room1.jpg" alt="room" />
+                <img src="assets/hotel2.jpg" alt="room" />
                 <div class="room__card__details">
                     <div>
                         <h4>Bridgewood Hotel</h4>
@@ -91,7 +93,7 @@
                 </div>
             </div>
             <div class="room__card">
-                <img src="assets/room2.jpg" alt="room" />
+                <img src="assets/hotel3.jpg" alt="room" />
                 <div class="room__card__details">
                     <div>
                         <h4>Ridgewood Hotel</h4>
@@ -109,18 +111,23 @@
             </div>
         </div>
     </section>
-<!-- Contenedro de las habitaciones de hotel-->
-<div><p class="section-subheader">ROOMS</p>
-    <h2 class="section-header">Hand Picked Rooms</h2>
-    <label class="switch">
-        <input type="checkbox" id="toggleSwitch" onchange="toggleContent()">
-        <span class="slider"></span>
-    </label>
-</div>
+    <!-- Contenedor de las habitaciones de hotel Precio normal-->
+    <div>
+        <p class="section-subheader">ROOMS</p>
+        <h2 class="section-header">Hand Picked Rooms</h2>
+    </div>
+    <div class="wrapper">
+        <span class="label-text">¿Tienes membresía?<br></span>
+        <label class="switch">
+
+            <input type="checkbox" id="toggleSwitch" onchange="toggleContent()">
+            <span class="slider"></span>
+        </label>
+    </div>
+    <!-- Lakewood Hotel Card -->
     <div class="container_hotel">
-        
-        <section class="hotel-cards">
-            <p class="section-subheader">Reward</p>
+        <section id="normalSection" class="hotel-cards">
+            <p class="section-subheader">Precio Normal</p>
             <div class="hotel-grid">
                 <!-- Lakewood Hotel Card -->
                 <div class="hotel-card">
@@ -134,21 +141,13 @@
                             <i class="far fa-star"></i>
                             <i class="far fa-star"></i>
                         </div>
-                        <p class="price">
-                            Weekday: $110 (Regular), $80 (Rewards) <br>
-                            Weekend: $90 (Regular), $80 (Rewards)
-                        </p>
-                        <!-- Selector de Tarifas -->
-                        <label for="lakewood-rate">Select Rate:</label>
-                        <select id="lakewood-rate" name="lakewood-rate">
-                            <option value="weekday-regular">Weekday Regular - $110</option>
-                            <option value="weekday-rewards">Weekday Rewards - $80</option>
-                            <option value="weekend-regular">Weekend Regular - $90</option>
-                            <option value="weekend-rewards">Weekend Rewards - $80</option>
-                        </select>
+                        <p class="descripcion">
+                            Cómoda habitación con cama doble o dos individuales,TV y
+                            baño privado con ducha.</p>
+                        <br>
                         <!-- Selector de Fechas -->
-                        <label for="lakewood-dates">Select Dates:</label>
-                        <input type="date" id="lakewood-dates" name="lakewood-dates" multiple>
+                        <label for="lakewood-dates" class="date-label">Select Dates:</label>
+                        <input type="date" id="lakewood-dates" name="lakewood-dates" class="date-input">
                     </div>
                 </div>
                 <!-- Bridgewood Hotel Card -->
@@ -163,21 +162,13 @@
                             <i class="fas fa-star"></i>
                             <i class="far fa-star"></i>
                         </div>
-                        <p class="price">
-                            Weekday: $160 (Regular), $110 (Rewards) <br>
-                            Weekend: $60 (Regular), $50 (Rewards)
-                        </p>
-                        <!-- Selector de Tarifas -->
-                        <label for="bridgewood-rate">Select Rate:</label>
-                        <select id="bridgewood-rate" name="bridgewood-rate">
-                            <option value="weekday-regular">Weekday Regular - $160</option>
-                            <option value="weekday-rewards">Weekday Rewards - $110</option>
-                            <option value="weekend-regular">Weekend Regular - $60</option>
-                            <option value="weekend-rewards">Weekend Rewards - $50</option>
-                        </select>
+                        <p class="descripcion">
+                            Elegante habitación con cama king size, TV, Wi-Fi de alta velocidad, bañera y ducha
+                            separadas.</p>
+                        <br>
                         <!-- Selector de Fechas -->
-                        <label for="bridgewood-dates">Select Dates:</label>
-                        <input type="date" id="bridgewood-dates" name="bridgewood-dates" multiple>
+                        <label for="lakewood-dates" class="date-label">Select Dates:</label>
+                        <input type="date" id="lakewood-dates" name="lakewood-dates" class="date-input">
                     </div>
                 </div>
                 <!-- Ridgewood Hotel Card -->
@@ -192,29 +183,22 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                         </div>
-                        <p class="price">
-                            Weekday: $220 (Regular), $100 (Rewards) <br>
-                            Weekend: $150 (Regular), $40 (Rewards)
+                        <p class="descripcion">
+                            Lujosa suite con cama king size, dos televisores y baño con bañera de
+                            hidromasaje. Incluye Wi-Fi premium.
                         </p>
-                        <!-- Selector de Tarifas -->
-                        <label for="ridgewood-rate">Select Rate:</label>
-                        <select id="ridgewood-rate" name="ridgewood-rate">
-                            <option value="weekday-regular">Weekday Regular - $220</option>
-                            <option value="weekday-rewards">Weekday Rewards - $100</option>
-                            <option value="weekend-regular">Weekend Regular - $150</option>
-                            <option value="weekend-rewards">Weekend Rewards - $40</option>
-                        </select>
+                        <br>
                         <!-- Selector de Fechas -->
-                        <label for="ridgewood-dates">Select Dates:</label>
-                        <input type="date" id="ridgewood-dates" name="ridgewood-dates" multiple>
+                        <label for="lakewood-dates" class="date-label">Select Dates:</label>
+                        <input type="date" id="lakewood-dates" name="lakewood-dates" class="date-input">
                     </div>
                 </div>
             </div>
         </section>
-        <!-- Lakewood Hotel Card Reward -->
-        <section class="hotel-cards">
-            <p class="section-subheader">Reward</p>
-            
+
+        <!-- Contenedor de las habitaciones de hotel Precio especial-->
+        <section id="specialSection" class="hotel-cards2">
+            <p class="section-subheader">Precio Especial</p>
             <div class="hotel-grid">
                 <!-- Lakewood Hotel Card -->
                 <div class="hotel-card">
@@ -228,21 +212,13 @@
                             <i class="far fa-star"></i>
                             <i class="far fa-star"></i>
                         </div>
-                        <p class="price">
-                            Weekday: $110 (Regular), $80 (Rewards) <br>
-                            Weekend: $90 (Regular), $80 (Rewards)
-                        </p>
-                        <!-- Selector de Tarifas -->
-                        <label for="lakewood-rate">Select Rate:</label>
-                        <select id="lakewood-rate" name="lakewood-rate">
-                            <option value="weekday-regular">Weekday Regular - $110</option>
-                            <option value="weekday-rewards">Weekday Rewards - $80</option>
-                            <option value="weekend-regular">Weekend Regular - $90</option>
-                            <option value="weekend-rewards">Weekend Rewards - $80</option>
-                        </select>
+                        <p class="descripcion">
+                            Cómoda habitación con cama doble o dos individuales,TV y baño privado con ducha.</p>
+                        <br>
+
                         <!-- Selector de Fechas -->
-                        <label for="lakewood-dates">Select Dates:</label>
-                        <input type="date" id="lakewood-dates" name="lakewood-dates" multiple>
+                        <label for="lakewood-dates" class="date-label">Select Dates:</label>
+                        <input type="date" id="lakewood-dates" name="lakewood-dates" class="date-input">
                     </div>
                 </div>
                 <!-- Bridgewood Hotel Card -->
@@ -257,21 +233,13 @@
                             <i class="fas fa-star"></i>
                             <i class="far fa-star"></i>
                         </div>
-                        <p class="price">
-                            Weekday: $160 (Regular), $110 (Rewards) <br>
-                            Weekend: $60 (Regular), $50 (Rewards)
-                        </p>
-                        <!-- Selector de Tarifas -->
-                        <label for="bridgewood-rate">Select Rate:</label>
-                        <select id="bridgewood-rate" name="bridgewood-rate">
-                            <option value="weekday-regular">Weekday Regular - $160</option>
-                            <option value="weekday-rewards">Weekday Rewards - $110</option>
-                            <option value="weekend-regular">Weekend Regular - $60</option>
-                            <option value="weekend-rewards">Weekend Rewards - $50</option>
-                        </select>
+                        <p class="descripcion">
+                            Elegante habitación con cama king size, TV, Wi-Fi de alta velocidad, bañera y ducha
+                            separadas.</p>
+                        <br>
                         <!-- Selector de Fechas -->
-                        <label for="bridgewood-dates">Select Dates:</label>
-                        <input type="date" id="bridgewood-dates" name="bridgewood-dates" multiple>
+                        <label for="lakewood-dates" class="date-label">Select Dates:</label>
+                        <input type="date" id="lakewood-dates" name="lakewood-dates" class="date-input">
                     </div>
                 </div>
                 <!-- Ridgewood Hotel Card -->
@@ -286,21 +254,14 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                         </div>
-                        <p class="price">
-                            Weekday: $220 (Regular), $100 (Rewards) <br>
-                            Weekend: $150 (Regular), $40 (Rewards)
-                        </p>
-                        <!-- Selector de Tarifas -->
-                        <label for="ridgewood-rate">Select Rate:</label>
-                        <select id="ridgewood-rate" name="ridgewood-rate">
-                            <option value="weekday-regular">Weekday Regular - $220</option>
-                            <option value="weekday-rewards">Weekday Rewards - $100</option>
-                            <option value="weekend-regular">Weekend Regular - $150</option>
-                            <option value="weekend-rewards">Weekend Rewards - $40</option>
-                        </select>
+                        <p class="descripcion">
+                            Elegante habitación con cama king size, TV, Wi-Fi de alta velocidad, bañera y ducha
+                            separadas.</p>
+                        <br>
+
                         <!-- Selector de Fechas -->
-                        <label for="ridgewood-dates">Select Dates:</label>
-                        <input type="date" id="ridgewood-dates" name="ridgewood-dates" multiple>
+                        <label for="lakewood-dates" class="date-label">Select Dates:</label>
+                        <input type="date" id="lakewood-dates" name="lakewood-dates" class="date-input">
                     </div>
                 </div>
             </div>

@@ -20,20 +20,6 @@ const scrollRevealOption = {
   duration: 1000,
 };
 
-// header container
-ScrollReveal().reveal(".header__container .section__subheader", {
-  ...scrollRevealOption,
-});
-
-ScrollReveal().reveal(".header__container h1", {
-  ...scrollRevealOption,
-  delay: 500,
-});
-
-ScrollReveal().reveal(".header__container .btn", {
-  ...scrollRevealOption,
-  delay: 1000,
-});
 
 // room container
 ScrollReveal().reveal(".room__card", {
@@ -41,23 +27,27 @@ ScrollReveal().reveal(".room__card", {
   interval: 500,
 });
 
-// news container
-ScrollReveal().reveal(".news__card", {
-  ...scrollRevealOption,
-  interval: 500,
-});
 
 // Funcion del toggle
 function toggleContent() {
-  var column1 = document.getElementById('column1');
-  var column2 = document.getElementById('column2');
+  var normalSection = document.getElementById('normalSection');
+  var specialSection = document.getElementById('specialSection');
   var switchToggle = document.getElementById('toggleSwitch');
 
   if (switchToggle.checked) {
-      column1.style.display = 'none';
-      column2.style.display = 'block';
+      normalSection.style.opacity = '0.2';
+      normalSection.style.pointerEvents = 'none'; // Desactiva la interacción
+      specialSection.style.opacity = '1';
+      specialSection.style.pointerEvents = 'auto'; // Activa la interacción
   } else {
-      column1.style.display = 'block';
-      column2.style.display = 'none';
+      normalSection.style.opacity = '1';
+      normalSection.style.pointerEvents = 'auto'; // Activa la interacción
+      specialSection.style.opacity = '0.2';
+      specialSection.style.pointerEvents = 'none'; // Desactiva la interacción
   }
 }
+// Ejecuta la función al cargar la página para establecer el estado inicial
+window.onload = function() {
+  toggleContent();
+};
+
