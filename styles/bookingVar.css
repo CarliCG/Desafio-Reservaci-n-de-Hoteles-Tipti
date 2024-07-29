@@ -9,16 +9,17 @@
     height: 100%;
     overflow: auto;
     background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
-    padding-top: 60px;
+    background-color: rgba(0,0,0,0.4); /* Fondo semi-transparente */
 }
 
 .modal-content {
     background-color: #fefefe;
-    margin: 5% auto;
+    margin: 5% auto; /* Cambiado a un margen más pequeño para pantallas pequeñas */
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
+    width: 90%; /* Ajuste para pantallas más pequeñas */
+    max-width: 600px; /* Ancho máximo para pantallas grandes */
+    box-sizing: border-box; /* Incluye padding y border en el ancho total */
 }
 
 .close {
@@ -33,4 +34,40 @@
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+#price-breakdown {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #e0f7fa;
+    border: 1px solid #0097a7;
+    border-radius: 5px;
+}
+
+#price-breakdown h3 {
+    margin-top: 0;
+}
+
+/* Media Queries para dispositivos móviles y pantallas pequeñas */
+@media (max-width: 600px) {
+    .modal-content {
+        width: 95%; /* Ancho casi completo para pantallas muy pequeñas */
+        margin: 10% auto; /* Ajusta el margen superior para pantallas pequeñas */
+    }
+
+    .close {
+        font-size: 24px; /* Tamaño de fuente más pequeño para el botón de cerrar en pantallas pequeñas */
+    }
+}
+
+/* Media Queries para tablets */
+@media (min-width: 601px) and (max-width: 900px) {
+    .modal-content {
+        width: 80%; /* Ajusta el ancho para tablets */
+        margin: 10% auto; /* Ajusta el margen superior para tablets */
+    }
+
+    .close {
+        font-size: 26px; /* Tamaño de fuente ligeramente más pequeño para tablets */
+    }
 }
