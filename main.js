@@ -55,69 +55,68 @@ window.onload = function() {
 
 // Funcionalidad del calendario de las tarjetas de habitaciones
 function updatePrice() {
-  const dateInputs = document.querySelectorAll('.date-input');
+    const dateInputs = document.querySelectorAll('.date-input');
 
-  dateInputs.forEach(input => {
-      flatpickr(input, {
-          mode: "range", // Permite seleccionar un rango de fechas
-          dateFormat: "d-M-Y", // Formato: día-mes-año
-          onChange: function(selectedDates, dateStr, instance) {
-              let totalPrice = 0;
-              const priceDetails = [];
+    dateInputs.forEach(input => {
+        flatpickr(input, {
+            mode: "range", // Permite seleccionar un rango de fechas
+            dateFormat: "d-M-Y", // Formato: día-mes-año
+            onChange: function(selectedDates, dateStr, instance) {
+                let totalPrice = 0;
+                const priceDetails = [];
 
-              // Asegúrate de que se ha seleccionado un rango válido
-              if (selectedDates.length === 2) {
-                  const [startDate, endDate] = selectedDates;
+                // Asegúrate de que se ha seleccionado un rango válido
+                if (selectedDates.length === 2) {
+                    const [startDate, endDate] = selectedDates;
 
-                  const oneDay = 24 * 60 * 60 * 1000; // Milisegundos en un día
-                  const diffDays = Math.round(Math.abs((endDate - startDate) / oneDay));
+                    const oneDay = 24 * 60 * 60 * 1000; // Milisegundos en un día
+                    const diffDays = Math.round(Math.abs((endDate - startDate) / oneDay));
 
-                  // Obtener el nombre del hotel del input
-                  const hotelName = instance.element.dataset.hotel;
-                  // Obtener el tipo de cliente basado en la sección activa
-                  const isSpecialSection = document.getElementById('specialSection').contains(instance.element);
-                  const customerType = isSpecialSection ? 'Rewards' : 'Regular';
+                    // Obtener el nombre del hotel del input
+                    const hotelName = instance.element.dataset.hotel;
+                    // Obtener el tipo de cliente basado en la selección del usuario
+                    const customerType = document.getElementById('customer-type').value;
 
-                  for (let i = 0; i <= diffDays; i++) {
-                      const date = new Date(startDate.getTime() + i * oneDay);
-                      const day = date.getDay(); // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
-                      const isWeekend = day === 0 || day === 6;
-                      const rateType = isWeekend ? "weekends" : "weekdays";
+                    for (let i = 0; i <= diffDays; i++) {
+                        const date = new Date(startDate.getTime() + i * oneDay);
+                        const day = date.getDay(); // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
+                        const isWeekend = day === 0 || day === 6;
+                        const rateType = isWeekend ? "weekends" : "weekdays";
 
-                      if (hotelData[hotelName]) {
-                          const price = hotelData[hotelName].rates[rateType][customerType];
-                          totalPrice += price;
-                          priceDetails.push({
-                              date: date.toLocaleDateString('en-GB'), // Formato: dd/mm/yyyy
-                              price: price
-                          });
-                      }
-                  }
+                        if (hotelData[hotelName]) {
+                            const price = hotelData[hotelName].rates[rateType][customerType];
+                            totalPrice += price;
+                            priceDetails.push({
+                                date: date.toLocaleDateString('en-GB'), // Formato: dd/mm/yyyy
+                                price: price
+                            });
+                        }
+                    }
 
-                  // Muestra el precio total
-                  const priceDisplayId = instance.element.dataset.priceDisplay;
-                  const priceDisplay = document.getElementById(priceDisplayId);
-                  priceDisplay.textContent = `Precio Total: $${totalPrice}`;
+                    // Muestra el precio total
+                    const priceDisplayId = instance.element.dataset.priceDisplay;
+                    const priceDisplay = document.getElementById(priceDisplayId);
+                    priceDisplay.textContent = `Precio Total: $${totalPrice}`;
 
-                  // Muestra el desglose de precios por día
-                  const breakdownDisplay = document.getElementById('price-breakdown');
-                  if (breakdownDisplay) {
-                      breakdownDisplay.innerHTML = '<h3>Precio Detallado por Día:</h3>';
-                      priceDetails.forEach(detail => {
-                          const p = document.createElement('p');
-                          p.textContent = `${detail.date}: $${detail.price}`;
-                          breakdownDisplay.appendChild(p);
-                      });
-                  }
-              } else {
-                  // Maneja el caso donde no se ha seleccionado un rango válido
-                  const priceDisplayId = instance.element.dataset.priceDisplay;
-                  const priceDisplay = document.getElementById(priceDisplayId);
-                  priceDisplay.textContent = 'Seleccione un rango de fechas válido';
-              }
-          }
-      });
-  });
+                    // Muestra el desglose de precios por día
+                    const breakdownDisplay = document.getElementById('price-breakdown');
+                    if (breakdownDisplay) {
+                        breakdownDisplay.innerHTML = '<h3>Precio Detallado por Día:</h3>';
+                        priceDetails.forEach(detail => {
+                            const p = document.createElement('p');
+                            p.textContent = `${detail.date}: $${detail.price}`;
+                            breakdownDisplay.appendChild(p);
+                        });
+                    }
+                } else {
+                    // Maneja el caso donde no se ha seleccionado un rango válido
+                    const priceDisplayId = instance.element.dataset.priceDisplay;
+                    const priceDisplay = document.getElementById(priceDisplayId);
+                    priceDisplay.textContent = 'Seleccione un rango de fechas válido';
+                }
+            }
+        });
+    });
 }
 
 // Ejecuta la función para configurar los calendarios y actualizar precios
@@ -127,6 +126,7 @@ document.addEventListener('DOMContentLoaded', updatePrice);
 document.getElementById('find-cheapest').addEventListener('click', function() {
     const arrivalDate = new Date(document.getElementById('arrival').value);
     const departureDate = new Date(document.getElementById('departure').value);
+    const customerType = document.getElementById('customer-type').value;
 
     if (arrivalDate && departureDate && arrivalDate < departureDate) {
         const totalNights = Math.ceil((departureDate - arrivalDate) / (1000 * 60 * 60 * 24));
@@ -141,7 +141,6 @@ document.getElementById('find-cheapest').addEventListener('click', function() {
                 const day = date.getDay();
                 const isWeekend = day === 0 || day === 6;
                 const rateType = isWeekend ? "weekends" : "weekdays";
-                const customerType = document.getElementById('specialSection').contains(document.querySelector('.date-input')) ? 'Rewards' : 'Regular';
                 totalPrice += rates[rateType][customerType];
             }
 
@@ -151,31 +150,37 @@ document.getElementById('find-cheapest').addEventListener('click', function() {
             }
         }
 
+        const modal = document.getElementById('cheapest-hotel-modal');
         if (cheapestHotel) {
-            const modal = document.getElementById('cheapest-hotel-info-modal');
-            const hotelNameElement = document.getElementById('hotel-name');
-            const hotelRatingElement = document.getElementById('hotel-rating');
-            const hotelPricePerNightElement = document.getElementById('hotel-price-per-night');
-            const totalCostElement = document.getElementById('total-cost');
-            
-            const hotelInfo = hotelData[cheapestHotel];
-            const pricePerNight = hotelInfo.rates.weekdays.Regular; // Asumiendo tarifa de semana regular para simplicidad
-
-            hotelNameElement.textContent = `Hotel: ${cheapestHotel}`;
-            hotelRatingElement.textContent = `Rating: ${hotelInfo.rating || 'N/A'}`;
-            hotelPricePerNightElement.textContent = `Price per Night: $${pricePerNight}`;
-            totalCostElement.textContent = `Total Cost: $${cheapestPrice}`;
-            
-            modal.style.display = 'block';
+            document.getElementById('hotel-name').textContent = `Hotel: ${cheapestHotel}`;
+            document.getElementById('hotel-rating').textContent = `Rating: ${hotelData[cheapestHotel].rating}`;
+            document.getElementById('hotel-price-per-night').textContent = `Price per Night: $${hotelData[cheapestHotel].rates.weekdays[customerType]}`;
+            document.getElementById('total-cost').textContent = `Total Cost: $${cheapestPrice}`;
+            modal.style.display = 'block'; // Muestra la tarjeta emergente
         } else {
-            alert('No se encontró un hotel.');
+            document.getElementById('hotel-name').textContent = `Hotel: Not found`;
+            document.getElementById('hotel-rating').textContent = '';
+            document.getElementById('hotel-price-per-night').textContent = '';
+            document.getElementById('total-cost').textContent = `Total Cost: $0`;
+            modal.style.display = 'block'; // Muestra la tarjeta emergente
         }
     } else {
-        alert('Por favor, ingrese fechas válidas.');
+        alert('Please enter valid dates.');
     }
 });
 
-// Cierre del modal
+// Cerrar el modal cuando se haga clic en el botón de cierre
 document.getElementById('close-modal').addEventListener('click', function() {
-    document.getElementById('cheapest-hotel-info-modal').style.display = 'none';
+    const modal = document.getElementById('cheapest-hotel-modal');
+    if (modal) {
+        modal.style.display = 'none'; // Oculta el modal
+    }
 });
+
+// Cerrar el modal cuando se haga clic fuera del contenido del modal
+window.onclick = function(event) {
+    const modal = document.getElementById('cheapest-hotel-modal');
+    if (modal && event.target === modal) {
+        modal.style.display = 'none'; // Oculta el modal
+    }
+};

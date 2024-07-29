@@ -47,8 +47,11 @@
                     <input type="date" id="departure" name="departure" placeholder="Your Departure Date" />
                 </div>
                 <div class="input__group">
-                    <label for="guests">Tipo de Cliente</label>
-                    <input type="number" id="guests" name="guests" placeholder="No Of Guests" />
+                    <label for="customer-type">Tipo de Cliente</label>
+                    <select id="customer-type" name="customer-type">
+                        <option value="Regular">Regular</option>
+                        <option value="Rewards">Rewards</option>
+                    </select>
                 </div>
                 <button type="button" class="btn" id="find-cheapest">Find Cheapest Hotel</button>
                 <!-- Cambiado el ID para evitar conflicto -->
@@ -57,15 +60,17 @@
     </section>
 
     <!-- Contenedor de la tarjeta emergente -->
-    <div id="cheapest-hotel-info-modal" class="modal">
-        <div class="modal-content">
-            <span id="close-modal" class="close">&times;</span>
-            <h2 id="hotel-name">Hotel: </h2>
-            <p id="hotel-rating">Rating: </p>
-            <p id="hotel-price-per-night">Price per Night: </p>
-            <p id="total-cost">Total Cost: </p>
-        </div>
+    <!-- Contenedor de la tarjeta emergente -->
+<div id="cheapest-hotel-modal" class="modal">
+    <div class="modal-content">
+        <span id="close-modal" class="close">&times;</span>
+        <h2 id="hotel-name">Hotel: </h2>
+        <p id="hotel-rating">Rating: </p>
+        <p id="hotel-price-per-night">Price per Night: </p>
+        <p id="total-cost">Total Cost: </p>
     </div>
+</div>
+
 
     <!-- Contenedor de Hoteles -->
     <section class="room__container" id="room">
