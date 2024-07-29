@@ -38,21 +38,22 @@
         <div class="section__container booking__container">
             <form action="/">
                 <div class="input__group">
-                    <label for="arrival">Arrival Date</label>
-                    <input type="text" placeholder="Your Arrival Date" />
+                    <label for="arrival">Check In</label>
+                    <input type="date" id="arrival" name="arrival" placeholder="Your Arrival Date" />
                 </div>
                 <div class="input__group">
-                    <label for="departure">Departure Date</label>
-                    <input type="text" placeholder="Your Departure Date" />
+                    <label for="departure">Check Out</label>
+                    <input type="date" id="departure" name="departure" placeholder="Your Departure Date" />
                 </div>
                 <div class="input__group">
                     <label for="guests">Guests</label>
-                    <input type="text" placeholder="No Of Guests" />
+                    <input type="number" id="guests" name="guests" placeholder="No Of Guests" />
                 </div>
-                <button class="btn">Check Availability</button>
+                <button class="btn">Book Now</button>
             </form>
         </div>
     </section>
+
     <!-- Contenedor de Hoteles -->
     <section class="room__container" id="room">
         <p class="section-subheader">HOTELS</p>
@@ -124,7 +125,9 @@
             <span class="slider"></span>
         </label>
     </div>
+
     <!-- Lakewood Hotel Card -->
+     
     <div class="container_hotel">
         <section id="normalSection" class="hotel-cards">
             <p class="section-subheader">Precio Normal</p>
@@ -142,83 +145,14 @@
                             <i class="far fa-star"></i>
                         </div>
                         <p class="descripcion">
-                            Cómoda habitación con cama doble o dos individuales,TV y
-                            baño privado con ducha.</p>
-                        <br>
-                        <!-- Selector de Fechas -->
-                        <label for="lakewood-dates" class="date-label">Select Dates:</label>
-                        <input type="date" id="lakewood-dates" name="lakewood-dates" class="date-input">
-                    </div>
-                </div>
-                <!-- Bridgewood Hotel Card -->
-                <div class="hotel-card">
-                    <img src="assets/room1.jpg" alt="Bridgewood Hotel" />
-                    <div class="hotel-details">
-                        <h4>Bridgewood Hotel</h4>
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
-                        </div>
-                        <p class="descripcion">
-                            Elegante habitación con cama king size, TV, Wi-Fi de alta velocidad, bañera y ducha
-                            separadas.</p>
-                        <br>
-                        <!-- Selector de Fechas -->
-                        <label for="lakewood-dates" class="date-label">Select Dates:</label>
-                        <input type="date" id="lakewood-dates" name="lakewood-dates" class="date-input">
-                    </div>
-                </div>
-                <!-- Ridgewood Hotel Card -->
-                <div class="hotel-card">
-                    <img src="assets/room2.jpg" alt="Ridgewood Hotel" />
-                    <div class="hotel-details">
-                        <h4>Ridgewood Hotel</h4>
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <p class="descripcion">
-                            Lujosa suite con cama king size, dos televisores y baño con bañera de
-                            hidromasaje. Incluye Wi-Fi premium.
+                            Cómoda habitación con cama doble o dos individuales, TV y baño privado con ducha.
                         </p>
                         <br>
                         <!-- Selector de Fechas -->
-                        <label for="lakewood-dates" class="date-label">Select Dates:</label>
-                        <input type="date" id="lakewood-dates" name="lakewood-dates" class="date-input">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contenedor de las habitaciones de hotel Precio especial-->
-        <section id="specialSection" class="hotel-cards2">
-            <p class="section-subheader">Precio Especial</p>
-            <div class="hotel-grid">
-                <!-- Lakewood Hotel Card -->
-                <div class="hotel-card">
-                    <img src="assets/room3.jpg" alt="Lakewood Hotel" />
-                    <div class="hotel-details">
-                        <h4>Lakewood Hotel</h4>
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-                        </div>
-                        <p class="descripcion">
-                            Cómoda habitación con cama doble o dos individuales,TV y baño privado con ducha.</p>
-                        <br>
-
-                        <!-- Selector de Fechas -->
-                        <label for="lakewood-dates" class="date-label">Select Dates:</label>
-                        <input type="date" id="lakewood-dates" name="lakewood-dates" class="date-input">
+                        <p class="price-display" id="price-display-1">Selecciona una fecha para ver el precio.</p>
+                        <label for="lakewood-dates-1" class="date-label">Select Dates:</label>
+                        <input type="date" id="lakewood-dates-1" name="lakewood-dates" class="date-input"
+                            data-price-display="price-display-1">
                     </div>
                 </div>
                 <!-- Bridgewood Hotel Card -->
@@ -235,11 +169,14 @@
                         </div>
                         <p class="descripcion">
                             Elegante habitación con cama king size, TV, Wi-Fi de alta velocidad, bañera y ducha
-                            separadas.</p>
+                            separadas.
+                        </p>
                         <br>
                         <!-- Selector de Fechas -->
-                        <label for="lakewood-dates" class="date-label">Select Dates:</label>
-                        <input type="date" id="lakewood-dates" name="lakewood-dates" class="date-input">
+                        <p class="price-display" id="price-display-2">Selecciona una fecha para ver el precio.</p>
+                        <label for="lakewood-dates-2" class="date-label">Select Dates:</label>
+                        <input type="date" id="lakewood-dates-2" name="lakewood-dates" class="date-input"
+                            data-price-display="price-display-2">
                     </div>
                 </div>
                 <!-- Ridgewood Hotel Card -->
@@ -255,17 +192,98 @@
                             <i class="fas fa-star"></i>
                         </div>
                         <p class="descripcion">
-                            Elegante habitación con cama king size, TV, Wi-Fi de alta velocidad, bañera y ducha
-                            separadas.</p>
+                            Lujosa suite con cama king size, dos TV's, baño con bañera e hidromasaje. Incluye Wi-Fi
+                            premium.
+                        </p>
                         <br>
-
                         <!-- Selector de Fechas -->
-                        <label for="lakewood-dates" class="date-label">Select Dates:</label>
-                        <input type="date" id="lakewood-dates" name="lakewood-dates" class="date-input">
+                        <p class="price-display" id="price-display-3">Selecciona una fecha para ver el precio.</p>
+                        <label for="lakewood-dates-3" class="date-label">Select Dates:</label>
+                        <input type="date" id="lakewood-dates-3" name="lakewood-dates" class="date-input"
+                            data-price-display="price-display-3">
                     </div>
                 </div>
             </div>
         </section>
+    
+
+
+    <!-- Contenedor de las habitaciones de hotel Precio especial-->
+    <section id="specialSection" class="hotel-cards2">
+        <p class="section-subheader">Precio Especial</p>
+        <div class="hotel-grid">
+            <!-- Lakewood Hotel Card -->
+            <div class="hotel-card">
+                <img src="assets/room3.jpg" alt="Lakewood Hotel" />
+                <div class="hotel-details">
+                    <h4>Lakewood Hotel</h4>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <p class="descripcion">
+                        Cómoda habitación con cama doble o dos individuales, TV y baño privado con ducha.
+                    </p>
+                    <br>
+                    <!-- Selector de Fechas -->
+                    <p class="price-display" id="price-display-4">Selecciona una fecha para ver el precio.</p>
+                    <label for="lakewood-dates-4" class="date-label">Select Dates:</label>
+                    <input type="date" id="lakewood-dates-4" name="lakewood-dates" class="date-input"
+                        data-price-display="price-display-4">
+                </div>
+            </div>
+            <!-- Bridgewood Hotel Card -->
+            <div class="hotel-card">
+                <img src="assets/room1.jpg" alt="Bridgewood Hotel" />
+                <div class="hotel-details">
+                    <h4>Bridgewood Hotel</h4>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <p class="descripcion">
+                        Elegante habitación con cama king size, TV, Wi-Fi de alta velocidad, bañera y ducha separadas.
+                    </p>
+                    <br>
+                    <!-- Selector de Fechas -->
+                    <p class="price-display" id="price-display-5">Selecciona una fecha para ver el precio.</p>
+                    <label for="lakewood-dates-5" class="date-label">Select Dates:</label>
+                    <input type="date" id="lakewood-dates-5" name="lakewood-dates" class="date-input"
+                        data-price-display="price-display-5">
+                </div>
+            </div>
+            <!-- Ridgewood Hotel Card -->
+            <div class="hotel-card">
+                <img src="assets/room2.jpg" alt="Ridgewood Hotel" />
+                <div class="hotel-details">
+                    <h4>Ridgewood Hotel</h4>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="descripcion">
+                        Lujosa suite con cama king size, dos TV's, baño con bañera e hidromasaje. Incluye Wi-Fi premium.
+                    </p>
+                    <br>
+                    <!-- Selector de Fechas -->
+                    <p class="price-display" id="price-display-6">Selecciona una fecha para ver el precio.</p>
+                    <label for="lakewood-dates-6" class="date-label">Select Dates:</label>
+                    <input type="date" id="lakewood-dates-6" name="lakewood-dates" class="date-input"
+                        data-price-display="price-display-6">
+                </div>
+            </div>
+        </div>
+    </section>
+    
     </div>
     <!--
         <footer class="footer">

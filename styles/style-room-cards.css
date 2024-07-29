@@ -39,12 +39,12 @@
 }
 /* titulo de membresia */
 .label-text {
-  font-size: 19px; 
+  font-size: 15px; 
   color: #333; 
   text-align: center; 
 }
 .input__group label {
-    font-weight: 600;
+  font-size: 15px;
     color: var(--white);
   }
 /* Estilo para la sección opaca y deshabilitada */
@@ -71,7 +71,7 @@
 
   .hotel-cards,
   .hotel-cards2 {
-    padding: 10px;
+    padding: 5px;
     background-color: #f9f9f9;
     transition: opacity 0.3s ease, pointer-events 0.3s ease;
     

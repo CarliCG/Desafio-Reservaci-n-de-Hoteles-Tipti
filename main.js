@@ -50,4 +50,28 @@ function toggleContent() {
 window.onload = function() {
   toggleContent();
 };
+//Funcionalidad del calendario de las tarjetas de habitaciones
+function updatePrice(event) {
+  const dateInput = event.target;
+  const selectedDate = new Date(dateInput.value);
+  const dayOfWeek = selectedDate.getDay(); // 0 = Domingo, 1 = Lunes, ..., 6 = Sábado
+  
+  let price;
+  
+  if (dayOfWeek === 0 || dayOfWeek === 6) {
+      // Sábado o Domingo
+      price = "$80";
+  } else {
+      // Lunes a Viernes
+      price = "$100";
+  }
+  
+  const priceDisplayId = dateInput.getAttribute('data-price-display');
+  const priceDisplay = document.getElementById(priceDisplayId);
+  priceDisplay.textContent = `Precio: ${price} por noche.`;
+}
 
+// Añadir el evento a todos los inputs de fecha
+document.querySelectorAll('.date-input').forEach(input => {
+  input.addEventListener('change', updatePrice);
+});
