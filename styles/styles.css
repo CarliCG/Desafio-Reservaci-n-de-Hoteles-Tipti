@@ -606,13 +606,7 @@ nav {
   color: var(--text-light);
   text-align: center;
 }
-/* Cards Hotel Information */
-.container_hotel {
-  display: flex;
-  justify-content:space-evenly;
-  padding: 10px;
-  margin: 10px;
-}
+
 
 /* Responsividad */
 @media (width > 480px) {

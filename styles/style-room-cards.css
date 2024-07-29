@@ -36,7 +36,7 @@
     padding: 10px; 
     border: 1px solid #ccc; /* Borde del input */
     border-radius: 9px; 
-    width: 50%; 
+    width: 80%; 
     box-sizing: border-box; /* Incluye el padding y el borde en el ancho total */
     margin-bottom: 10px; /* Espacio debajo del input */
 }
@@ -44,7 +44,7 @@
 .label-text {
   font-size: 15px; 
   color: #333; 
-  text-align: center; 
+  text-align: center;
 }
 .input__group label {
   font-size: 15px;
@@ -71,7 +71,13 @@
     opacity: 1;
     pointer-events: auto; /* Activa clics */
 }
-
+/* Cards Hotel Information */
+.container_hotel {
+  display: flex;
+  justify-content:space-evenly;
+  padding: 10px;
+  margin: 10px;
+}
   .hotel-cards,
   .hotel-cards2 {
     padding: 5px;
@@ -84,7 +90,8 @@
   .section-subheader {
     text-align: center;
     font-size: 15px;
-    color: #333;       
+    color: #333;
+    margin: 15px;       
   }
   
   .section-header {
@@ -107,7 +114,7 @@
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 8px;    
-    height: 200px;
+    height: 250px;
     width: 500px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
@@ -117,20 +124,20 @@
   
   .hotel-card img {
     width: 200px; 
-    height: 200px; 
+    height: 250px; 
     object-fit: cover;
     margin-right: 15px; 
     border-radius: 30px;
   }
   
   .hotel-details {
-    padding: 15px;
+    padding: 10px;
     flex: 1; /* Permite que el contenido ocupe el espacio restante */
   }
   
   .hotel-details h4 {
-    font-size:15px;
-    margin: 10px 0;
+    font-size:18px;
+    margin-top: 10px ;
   }
   
   .rating {

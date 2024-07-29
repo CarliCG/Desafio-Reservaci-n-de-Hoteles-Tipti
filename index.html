@@ -124,14 +124,16 @@
             <input type="checkbox" id="toggleSwitch" onchange="toggleContent()">
             <span class="slider"></span>
         </label>
-        
+    </div>
+    <div class="wrapper">
+        <span class="label-text">A continuación se puede observar el precio por noche de cada hotel<br></span>
     </div>
 
     <!-- Lakewood Hotel Card -->
 
     <div class="container_hotel">
         <section id="normalSection" class="hotel-cards">
-            <p class="section-subheader">Precio Normal</p>
+            <p class="section-subheader">Precio Normal por Noche</p>
             <div class="hotel-grid">
                 <!-- Lakewood Hotel Card -->
                 <div class="hotel-card" id="lakewood-card">
@@ -152,8 +154,10 @@
                         <!-- Selector de Fechas -->
                         <p class="price-display" id="price-display-1">Selecciona una fecha para ver el precio.</p>
                         <label for="lakewood-dates-1" class="date-label">Select Dates:</label>
-                        <input type="date" id="lakewood-dates-1" name="lakewood-dates" class="date-input"
-                            data-hotel="Lakewood" data-price-display="price-display-1">
+                        <input type="text" id="lakewood-dates-1" name="lakewood-dates" class="date-input"
+                            data-hotel="Lakewood" data-price-display="price-display-1" placeholder="dd/mm/aaaa">
+
+
                     </div>
                 </div>
                 <!-- Bridgewood Hotel Card -->
@@ -177,7 +181,7 @@
                         <p class="price-display" id="price-display-2">Selecciona una fecha para ver el precio.</p>
                         <label for="bridgewood-dates-2" class="date-label">Select Dates:</label>
                         <input type="date" id="bridgewood-dates-2" name="bridgewood-dates" class="date-input"
-                            data-hotel="Bridgewood" data-price-display="price-display-2">
+                            data-hotel="Bridgewood" data-price-display="price-display-2"placeholder="dd/mm/aaaa">
                     </div>
                 </div>
                 <!-- Ridgewood Hotel Card -->
@@ -207,12 +211,9 @@
             </div>
         </section>
 
-
-
-
         <!-- Contenedor de las habitaciones de hotel Precio especial-->
         <section id="specialSection" class="hotel-cards2">
-            <p class="section-subheader">Precio Especial</p>
+            <p class="section-subheader">Precio Especial por Noche</p>
             <div class="hotel-grid">
                 <!-- Lakewood Hotel Card -->
                 <div class="hotel-card">
@@ -234,7 +235,7 @@
                         <p class="price-display" id="price-display-4">Selecciona una fecha para ver el precio.</p>
                         <label for="lakewood-dates-4" class="date-label">Select Dates:</label>
                         <input type="date" id="lakewood-dates-4" name="lakewood-dates" class="date-input"
-                            data-hotel="Ridgewood" data-price-display="price-display-4">
+                            data-hotel="Lakewood" data-price-display="price-display-4">
                     </div>
                 </div>
                 <!-- Bridgewood Hotel Card -->
@@ -250,13 +251,14 @@
                             <i class="far fa-star"></i>
                         </div>
                         <p class="descripcion">
-                            Elegante habitación con cama king size, TV, Wi-Fi de alta velocidad, bañera y ducha separadas.
+                            Elegante habitación con cama king size, TV, Wi-Fi de alta velocidad, bañera y ducha
+                            separadas.
                         </p>
                         <br>
                         <!-- Selector de Fechas -->
                         <p class="price-display" id="price-display-5">Selecciona una fecha para ver el precio.</p>
-                        <label for="lakewood-dates-5" class="date-label">Select Dates:</label>
-                        <input type="date" id="lakewood-dates-5" name="lakewood-dates" class="date-input"
+                        <label for="bridgewood-dates-5" class="date-label">Select Dates:</label>
+                        <input type="date" id="bridgewood-dates-5" name="bridgewood-dates" class="date-input"
                             data-hotel="Bridgewood" data-price-display="price-display-5">
                     </div>
                 </div>
@@ -273,18 +275,20 @@
                             <i class="fas fa-star"></i>
                         </div>
                         <p class="descripcion">
-                            Lujosa suite con cama king size, dos TV's, baño con bañera e hidromasaje. Incluye Wi-Fi premium.
+                            Lujosa suite con cama king size, dos TV's, baño con bañera e hidromasaje. Incluye Wi-Fi
+                            premium.
                         </p>
                         <br>
                         <!-- Selector de Fechas -->
                         <p class="price-display" id="price-display-6">Selecciona una fecha para ver el precio.</p>
-                        <label for="lakewood-dates-6" class="date-label">Select Dates:</label>
-                        <input type="date" id="lakewood-dates-6" name="lakewood-dates" class="date-input"
+                        <label for="ridgewood-dates-6" class="date-label">Select Dates:</label>
+                        <input type="date" id="ridgewood-dates-6" name="ridgewood-dates" class="date-input"
                             data-hotel="Ridgewood" data-price-display="price-display-6">
                     </div>
                 </div>
             </div>
         </section>
+
 
     </div>
     <!--
@@ -358,10 +362,10 @@
         </div>
     </footer>
 -->
-<script src="https://unpkg.com/scrollreveal"></script>
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-<script type="module" src="main.js"></script>
-<script type="module" src="detalleHotel.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script type="module" src="main.js"></script>
+    <script type="module" src="detalleHotel.js"></script>
 
 </body>
 
