@@ -63,6 +63,7 @@ function updatePrice() {
           dateFormat: "d-M-Y", // Formato: día-mes-año
           onChange: function(selectedDates, dateStr, instance) {
               let totalPrice = 0;
+              const priceDetails = [];
 
               // Asegúrate de que se ha seleccionado un rango válido
               if (selectedDates.length === 2) {
@@ -86,6 +87,10 @@ function updatePrice() {
                       if (hotelData[hotelName]) {
                           const price = hotelData[hotelName].rates[rateType][customerType];
                           totalPrice += price;
+                          priceDetails.push({
+                              date: date.toLocaleDateString('en-GB'), // Formato: dd/mm/yyyy
+                              price: price
+                          });
                       }
                   }
 
@@ -93,6 +98,17 @@ function updatePrice() {
                   const priceDisplayId = instance.element.dataset.priceDisplay;
                   const priceDisplay = document.getElementById(priceDisplayId);
                   priceDisplay.textContent = `Precio Total: $${totalPrice}`;
+
+                  // Muestra el desglose de precios por día
+                  const breakdownDisplay = document.getElementById('price-breakdown');
+                  if (breakdownDisplay) {
+                      breakdownDisplay.innerHTML = '<h3>Precio Detallado por Día:</h3>';
+                      priceDetails.forEach(detail => {
+                          const p = document.createElement('p');
+                          p.textContent = `${detail.date}: $${detail.price}`;
+                          breakdownDisplay.appendChild(p);
+                      });
+                  }
               } else {
                   // Maneja el caso donde no se ha seleccionado un rango válido
                   const priceDisplayId = instance.element.dataset.priceDisplay;
@@ -104,6 +120,62 @@ function updatePrice() {
   });
 }
 
-
 // Ejecuta la función para configurar los calendarios y actualizar precios
 document.addEventListener('DOMContentLoaded', updatePrice);
+
+// Funcionalidad para encontrar el hotel más barato
+document.getElementById('find-cheapest').addEventListener('click', function() {
+    const arrivalDate = new Date(document.getElementById('arrival').value);
+    const departureDate = new Date(document.getElementById('departure').value);
+
+    if (arrivalDate && departureDate && arrivalDate < departureDate) {
+        const totalNights = Math.ceil((departureDate - arrivalDate) / (1000 * 60 * 60 * 24));
+        let cheapestHotel = null;
+        let cheapestPrice = Infinity;
+
+        for (const hotel in hotelData) {
+            const rates = hotelData[hotel].rates;
+            let totalPrice = 0;
+
+            for (let date = new Date(arrivalDate); date < departureDate; date.setDate(date.getDate() + 1)) {
+                const day = date.getDay();
+                const isWeekend = day === 0 || day === 6;
+                const rateType = isWeekend ? "weekends" : "weekdays";
+                const customerType = document.getElementById('specialSection').contains(document.querySelector('.date-input')) ? 'Rewards' : 'Regular';
+                totalPrice += rates[rateType][customerType];
+            }
+
+            if (totalPrice < cheapestPrice) {
+                cheapestPrice = totalPrice;
+                cheapestHotel = hotel;
+            }
+        }
+
+        if (cheapestHotel) {
+            const modal = document.getElementById('cheapest-hotel-info-modal');
+            const hotelNameElement = document.getElementById('hotel-name');
+            const hotelRatingElement = document.getElementById('hotel-rating');
+            const hotelPricePerNightElement = document.getElementById('hotel-price-per-night');
+            const totalCostElement = document.getElementById('total-cost');
+            
+            const hotelInfo = hotelData[cheapestHotel];
+            const pricePerNight = hotelInfo.rates.weekdays.Regular; // Asumiendo tarifa de semana regular para simplicidad
+
+            hotelNameElement.textContent = `Hotel: ${cheapestHotel}`;
+            hotelRatingElement.textContent = `Rating: ${hotelInfo.rating || 'N/A'}`;
+            hotelPricePerNightElement.textContent = `Price per Night: $${pricePerNight}`;
+            totalCostElement.textContent = `Total Cost: $${cheapestPrice}`;
+            
+            modal.style.display = 'block';
+        } else {
+            alert('No se encontró un hotel.');
+        }
+    } else {
+        alert('Por favor, ingrese fechas válidas.');
+    }
+});
+
+// Cierre del modal
+document.getElementById('close-modal').addEventListener('click', function() {
+    document.getElementById('cheapest-hotel-info-modal').style.display = 'none';
+});

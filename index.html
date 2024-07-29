@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-
+    <link rel="stylesheet" href="styles/bookingVar.css" />
     <link rel="stylesheet" href="styles/styles.css" />
     <link rel="stylesheet" href="styles/style-room-cards.css" />
     <title>Booking Hotel | Miami</title>
@@ -37,7 +37,7 @@
     <!-- Barra de Navegacion Booking -->
     <section class="booking">
         <div class="section__container booking__container">
-            <form action="/">
+            <form id="booking-form" action="/">
                 <div class="input__group">
                     <label for="arrival">Check In</label>
                     <input type="date" id="arrival" name="arrival" placeholder="Your Arrival Date" />
@@ -47,13 +47,25 @@
                     <input type="date" id="departure" name="departure" placeholder="Your Departure Date" />
                 </div>
                 <div class="input__group">
-                    <label for="guests">Guests</label>
+                    <label for="guests">Tipo de Cliente</label>
                     <input type="number" id="guests" name="guests" placeholder="No Of Guests" />
                 </div>
-                <button class="btn">Book Now</button>
+                <button type="button" class="btn" id="find-cheapest">Find Cheapest Hotel</button>
+                <!-- Cambiado el ID para evitar conflicto -->
             </form>
         </div>
     </section>
+
+    <!-- Contenedor de la tarjeta emergente -->
+    <div id="cheapest-hotel-info-modal" class="modal">
+        <div class="modal-content">
+            <span id="close-modal" class="close">&times;</span>
+            <h2 id="hotel-name">Hotel: </h2>
+            <p id="hotel-rating">Rating: </p>
+            <p id="hotel-price-per-night">Price per Night: </p>
+            <p id="total-cost">Total Cost: </p>
+        </div>
+    </div>
 
     <!-- Contenedor de Hoteles -->
     <section class="room__container" id="room">
@@ -126,14 +138,15 @@
         </label>
     </div>
     <div class="wrapper">
-        <span class="label-text">A continuación se puede observar el precio por noche de cada hotel<br></span>
+        <span class="label-text">A continuación puede serleccionar las fechas de su estadia de acuerdo al la habitacion
+            de elección<br></span>
     </div>
 
     <!-- Lakewood Hotel Card -->
 
     <div class="container_hotel">
         <section id="normalSection" class="hotel-cards">
-            <p class="section-subheader">Precio Normal por Noche</p>
+            <p class="section-subheader">Precio Normal</p>
             <div class="hotel-grid">
                 <!-- Lakewood Hotel Card -->
                 <div class="hotel-card" id="lakewood-card">
@@ -147,12 +160,15 @@
                             <i class="far fa-star"></i>
                             <i class="far fa-star"></i>
                         </div>
-                        <p class="descripcion">
-                            Cómoda habitación con cama doble o dos individuales, TV y baño privado con ducha.
+                        <p class="descripcion">Cómoda habitación con cama doble o dos individuales, TV y baño privado
+                            con ducha.
                         </p>
-                        <br>
+
+                        <label for="lakewood-dates-1" class="descripcion">Lunes a Viernes: 110$</label>
+                        <label for="lakewood-dates-1" class="descripcion">Fin de semana: 90$</label>
                         <!-- Selector de Fechas -->
                         <p class="price-display" id="price-display-1">Selecciona una fecha para ver el precio.</p>
+
                         <label for="lakewood-dates-1" class="date-label">Select Dates:</label>
                         <input type="text" id="lakewood-dates-1" name="lakewood-dates" class="date-input"
                             data-hotel="Lakewood" data-price-display="price-display-1" placeholder="dd/mm/aaaa">
@@ -176,12 +192,14 @@
                             Elegante habitación con cama king size, TV, Wi-Fi de alta velocidad, bañera y ducha
                             separadas.
                         </p>
-                        <br>
+
+                        <label for="lakewood-dates-1" class="descripcion">Lunes a Viernes: 160$</label>
+                        <label for="lakewood-dates-1" class="descripcion">Fin de semana: 60$</label>
                         <!-- Selector de Fechas -->
                         <p class="price-display" id="price-display-2">Selecciona una fecha para ver el precio.</p>
                         <label for="bridgewood-dates-2" class="date-label">Select Dates:</label>
                         <input type="date" id="bridgewood-dates-2" name="bridgewood-dates" class="date-input"
-                            data-hotel="Bridgewood" data-price-display="price-display-2"placeholder="dd/mm/aaaa">
+                            data-hotel="Bridgewood" data-price-display="price-display-2" placeholder="dd/mm/aaaa">
                     </div>
                 </div>
                 <!-- Ridgewood Hotel Card -->
@@ -200,7 +218,8 @@
                             Lujosa suite con cama king size, dos TV's, baño con bañera e hidromasaje. Incluye Wi-Fi
                             premium.
                         </p>
-                        <br>
+                        <label for="lakewood-dates-1" class="descripcion">Lunes a Viernes: 220$</label>
+                        <label for="lakewood-dates-1" class="descripcion">Fin de semana: 150$</label>
                         <!-- Selector de Fechas -->
                         <p class="price-display" id="price-display-3">Selecciona una fecha para ver el precio.</p>
                         <label for="ridgewood-dates-3" class="date-label">Select Dates:</label>
@@ -213,7 +232,7 @@
 
         <!-- Contenedor de las habitaciones de hotel Precio especial-->
         <section id="specialSection" class="hotel-cards2">
-            <p class="section-subheader">Precio Especial por Noche</p>
+            <p class="section-subheader">Precio Especial</p>
             <div class="hotel-grid">
                 <!-- Lakewood Hotel Card -->
                 <div class="hotel-card">
@@ -230,7 +249,8 @@
                         <p class="descripcion">
                             Cómoda habitación con cama doble o dos individuales, TV y baño privado con ducha.
                         </p>
-                        <br>
+                        <label for="lakewood-dates-1" class="descripcion">Lunes a Viernes: 80$</label>
+                        <label for="lakewood-dates-1" class="descripcion">Fin de semana: 80$</label>
                         <!-- Selector de Fechas -->
                         <p class="price-display" id="price-display-4">Selecciona una fecha para ver el precio.</p>
                         <label for="lakewood-dates-4" class="date-label">Select Dates:</label>
@@ -254,7 +274,8 @@
                             Elegante habitación con cama king size, TV, Wi-Fi de alta velocidad, bañera y ducha
                             separadas.
                         </p>
-                        <br>
+                        <label for="lakewood-dates-1" class="descripcion">Lunes a Viernes: 110$</label>
+                        <label for="lakewood-dates-1" class="descripcion">Fin de semana: 50$</label>
                         <!-- Selector de Fechas -->
                         <p class="price-display" id="price-display-5">Selecciona una fecha para ver el precio.</p>
                         <label for="bridgewood-dates-5" class="date-label">Select Dates:</label>
@@ -278,7 +299,8 @@
                             Lujosa suite con cama king size, dos TV's, baño con bañera e hidromasaje. Incluye Wi-Fi
                             premium.
                         </p>
-                        <br>
+                        <label for="lakewood-dates-1" class="descripcion">Lunes a Viernes: 100$</label>
+                        <label for="lakewood-dates-1" class="descripcion">Fin de semana: 40$</label>
                         <!-- Selector de Fechas -->
                         <p class="price-display" id="price-display-6">Selecciona una fecha para ver el precio.</p>
                         <label for="ridgewood-dates-6" class="date-label">Select Dates:</label>
@@ -366,6 +388,7 @@
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script type="module" src="main.js"></script>
     <script type="module" src="detalleHotel.js"></script>
+
 
 </body>
 
