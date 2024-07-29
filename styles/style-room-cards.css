@@ -16,11 +16,14 @@
   margin: 0;
   box-sizing: border-box;
 }
-
+/* clase price-display */
+.price-display {
+  font-size: 12px; /* Ajusta este valor según tus necesidades */
+}
 /* Estilo para el label */
 .date-label {
     font-family: 'Arial', sans-serif; /* Cambia la fuente según tus preferencias */
-    font-size: 15px; 
+    font-size: 13px; 
     color: #333; 
     margin-bottom: 10px;
     display: block; 
@@ -74,6 +77,7 @@
     padding: 5px;
     background-color: #f9f9f9;
     transition: opacity 0.3s ease, pointer-events 0.3s ease;
+    margin: 5px;
     
   }
   
@@ -108,7 +112,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: transform 0.3s ease; /* Transición para efectos de hover */
-    border-radius: 50px;
+    border-radius: 50px;    
   }
   
   .hotel-card img {
